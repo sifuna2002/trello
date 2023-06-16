@@ -5,10 +5,11 @@ import { DragDropContext,DropResult,Droppable } from 'react-beautiful-dnd'
 import Column from './Column'
 
 function Board() {
-    const [board, getBoard,setBoardState]=useBoardStore((state) => [
+    const [board, getBoard,setBoardState,updateTodoInDB]=useBoardStore((state) => [
         state.board, 
         state.getBoard,
         state.setBoardState,
+        state.updateTodoInDb,
     ])
     useEffect(() => {
         getBoard();
@@ -62,12 +63,20 @@ function Board() {
             // move between columns
             const finishTodos = finishCol.todos;
             finishTodos.splice(destination.index,0,removed);
+
             const newColumns=new Map(board.columns);
+            const newCol={
+                id:startCol.id,
+                todos:newTodos,
+            }
+            
+            newColumns.set(startCol.id,newCol);
             newColumns.set(finishCol.id,{
                 id:finishCol.id,
                 todos:finishTodos
             })
-
+            // update todo in db
+            updateTodoInDB(removed,finishCol.id);
             setBoardState({
                 ...board,
                 columns:newColumns
