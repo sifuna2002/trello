@@ -24,6 +24,7 @@ function Header() {
             setSuggestion(suggestion);
             setLoading(false);
         }
+        //fetchSuggestionFunc();
     }, [board])
   return (
     <header>
