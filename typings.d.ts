@@ -17,7 +17,15 @@ interface Todo{
     image?:string;
 }
 
-interface Image{
-    bucketId:string;
-    fileId:string;
+interface Image {
+    bucketId: string,
+    fileId: string,
+}
+
+interface TaskType {
+    id: TypedColumn,
+    name: string,
+    description: string,
+    color: string,
+    ringColor: string,
 }

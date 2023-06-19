@@ -1,3 +1,4 @@
+import Modal from '@/components/Modal'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -15,7 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body >{children}</body>
+      <body >
+        {children}
+        <Modal />
+        </body>
     </html>
   )
 }

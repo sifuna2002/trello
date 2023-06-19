@@ -1,5 +1,6 @@
 import { database, storage } from "@/appwrite";
 import { getTodosGroupedByColumn } from "@/lib/getTodosGroupedByColumn";
+import uploadImage from "@/lib/uploadImage";
 import { create } from "zustand"
 
 interface BoardState{
@@ -8,13 +9,27 @@ interface BoardState{
     setBoardState: (board: Board) => void;
     updateTodoInDb: (todo: Todo, columnId:TypedColumn) => void;
     searchString: string;
+    newTaskInput: string;
+    newTaskType:TypedColumn;
+    image: File | null;
+    setImage: (image: File | null) => void;
+
+  addTask: (todo: string, columnId: TypedColumn, image?: File | null) => void;
+    setNewTaskType:(columnId:TypedColumn)=>void;
+    setNewTaskInput: (input: string) => void;
     setSearchString: (searchString: string) => void;
     deleteTask: (taskIndex:number, todoId:Todo,id:TypedColumn) => void;
 }
 
 export const useBoardStore = create<BoardState>((set,get) => ({
+    image: null,
+    setImage: (image) => set({ image }),
+    newTaskType:"todo",
+    setNewTaskType: (columnId:TypedColumn)=>set({newTaskType:columnId}),
     searchString: "",
     setSearchString: (searchString) => set({ searchString }),
+    newTaskInput: "",
+    setNewTaskInput: (input:string) => set({ newTaskInput: input }),
     board: {
         columns: new Map<TypedColumn, Column>()
     },
@@ -53,4 +68,18 @@ export const useBoardStore = create<BoardState>((set,get) => ({
             todo.$id
         );
     },
+
+  addTask: async (todo, columnId, image = null) => {
+    let file: Image | undefined;
+
+    if (image) {
+      const fileUploaded = await uploadImage(image);
+      if (fileUploaded) {
+        file = {
+          bucketId: fileUploaded.bucketId,
+          fileId: fileUploaded.$id,
+        };
+      }
+    }
+}
 }));
