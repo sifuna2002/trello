@@ -1,14 +1,8 @@
 'use client'
 import React, { useState } from 'react'
+import OtpInput from 'react-otp-input';
 export default function Home() {
-    const [toggle, setToggle] = useState("password")
-    const toggleText = () => {
-        if(toggle === "password"){
-            setToggle("text")
-        }else{
-            setToggle("password")
-        }
-    }
+  const [otp, setOtp] = useState('');
   return (
    //paxfull login page
     <main className="flex items-center  content-evenly ">
@@ -48,18 +42,31 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col justify-start w-full items-start space-y-2">
-                    <div className="flex items-center gap-3 justify-evenly w-full">
-                        <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
-                        <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
-                        <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
-                        <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
-                        <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
-                        <input type="text" className="w-full border focus:border-[#42a4d1] outline-none rounded-sm p-2 " />
+                    <div className="flex items-center justify-start w-full">
+                        <OtpInput
+                        inputStyle={{
+                            minWidth: '2.5rem',
+                            minHeight: '2.5rem',
+                            margin: '0 0.5rem',
+                            fontSize: '1.5rem',
+                            borderRadius: 4,
+                            border: '1px solid rgba(0, 0, 0, 0.3)',
+                        }}
+                        value={otp}
+                        onChange={setOtp}
+                        numInputs={6}
+                        inputType="number"
+                        renderSeparator={<span> </span>}
+                        renderInput={(props) => <input {...props} />}
+                        shouldAutoFocus
+                        />
                     </div>
                     <a href="#" className="text-sm text-[#0052CC]">Resend Code</a>
                 </div>
 
-                <button className="w-full bg-[#ffffff] flex items-center justify-start gap-3 text-[#0052CC] rounded-sm mt-2">
+                <button 
+                onClick={() => window.location.href='/paxful'}
+                className="w-full bg-[#ffffff] flex items-center justify-start gap-3 text-[#0052CC] rounded-sm mt-2">
                     <svg className='rotate-180 color-[#42a4d1]' width="9" height="16" stroke="#42a4d1" stroke-width="1.5" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M0.793997 13.292L6.086 7.99898L0.793997 2.70598C0.698487 2.61374 0.622304 2.50339 0.569895 2.38139C0.517486 2.25938 0.4899 2.12816 0.488746 1.99538C0.487592 1.8626 0.512894 1.73092 0.563175 1.60803C0.613456 1.48513 0.687709 1.37348 0.781602 1.27959C0.875495 1.18569 0.987146 1.11144 1.11004 1.06116C1.23294 1.01088 1.36462 0.985578 1.4974 0.986732C1.63018 0.987886 1.7614 1.01547 1.8834 1.06788C2.00541 1.12029 2.11575 1.19647 2.208 1.29198L8.208 7.29198C8.35276 7.43587 8.44951 7.62099 8.485 7.82198L8.5 7.93998V8.05798C8.48594 8.30241 8.38234 8.53309 8.209 8.70598L2.209 14.706C2.11675 14.8015 2.00641 14.8777 1.8844 14.9301C1.7624 14.9825 1.63118 15.0101 1.4984 15.0112C1.36562 15.0124 1.23394 14.9871 1.11104 14.9368C0.988146 14.8865 0.876495 14.8123 0.782602 14.7184C0.688709 14.6245 0.614456 14.5128 0.564175 14.3899C0.513894 14.267 0.488592 14.1354 0.489746 14.0026C0.4909 13.8698 0.518486 13.7386 0.570895 13.6166C0.623304 13.4946 0.698487 13.3842 0.793997 13.292Z" fill="white"/>
                     </svg>
