@@ -13,3 +13,8 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+input[type="number"]:focus {
+  outline-color:#0052CC;
+  border: #0052CC 1px solid;
+}
